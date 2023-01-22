@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styles from './Detail.module.css';
 
 export default function Detail() {
-    let { detailId } = useParams();
+    const { detailId } = useParams();
 
     const [character, setCharacter] = useState({});
     const navigate = useNavigate();
@@ -22,11 +22,11 @@ export default function Detail() {
                 if (char.name) {
                     setCharacter(char);
                 } else {
-                    window.alert("No hay personajes con ese ID");
+                    window.alert("No character found with this ID");
                 }
             })
             .catch((err) => {
-                window.alert("No hay personajes con ese ID");
+                window.alert("No character found with this ID");
             });
         return setCharacter({});
     }, [detailId]);
@@ -38,7 +38,8 @@ export default function Detail() {
                 <p className={styles.specs}>STATUS: {character.status}</p>
                 <p className={styles.specs}>SPECIES: {character.species}</p>
                 <p className={styles.specs}>GENDER: {character.gender}</p>
-                <p className={styles.specs}>ORIGIN: {character.id}</p>
+                <p className={styles.specs}>ORIGIN: {character.origin?.name}</p>
+                <p className={styles.specs}>LOCATION: {character.location?.name}</p>
                 <div className={styles.divButtonBack}>
                     <button className={styles.buttonBack} onClick={() => navigate(-1)}>GO BACK</button>
                 </div>

@@ -1,32 +1,21 @@
-.divDetail {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.divData {
+.divError {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    padding: 0 3rem;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.specs {
+    align-items: center;
+    padding: 1rem;
     color: rgba(230, 230, 230, 1);
-    width: 100%;
-    margin: 0 0 0.3rem 0;
     font-weight: 400;
     font-size: 1rem;
-    text-align: left;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* .Image {
-    object-fit: fill;
-} */
+.image {
+    /* width: 50%; */
+    /* transform: scale(1.05) */
+    margin: 1rem;
+}
 
-.divButtonBack {
+.divButtonHome {
     height: 100%;
     width: 100%;
     display: flex;
@@ -35,7 +24,7 @@
     align-items: center;
 }
 
-.buttonBack {
+.buttonHome {
     color: rgb(51, 51, 51);
     background-color: rgb(158, 214, 164);
     border-radius: 0.3rem;
@@ -46,8 +35,9 @@
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
 }
 
-.buttonBack:hover {
+.buttonHome:hover {
     background-color: rgb(190, 231, 194);
 }

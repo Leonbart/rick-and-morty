@@ -11,6 +11,12 @@
     border-radius: 0.5rem;
 }
 
+.divCard:hover {
+    transform: scale(1.05);
+    transition: transform 0.8s;
+    transition-delay: 0.1s;
+}
+
 .divButton {
     display: flex;
     justify-content: flex-end;
@@ -26,6 +32,10 @@
     font-weight: 600;
     color: beige;
     background-color: crimson;
+}
+
+.buttonCard:hover {
+    background-color: rgb(214, 98, 121);
 }
 
 .divImgContainer {

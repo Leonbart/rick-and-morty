@@ -3,8 +3,36 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     background-color: rgb(115, 171, 179)
+}
+
+.divLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.image {
+    height: 5rem;
+    width: auto;
+}
+
+.btnAbout {
+    color: rgb(51, 51, 51);
+    background-color: rgb(158, 214, 164);
+    border-radius: 0.3rem;
+    border-color: green;
+    border-width: 0rem;
+    height: 2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 2rem;
+}
+
+.btnAbout:hover {
+    background-color: rgb(190, 231, 194);
 }
 
 .divSearchBar {

@@ -26,6 +26,14 @@
     text-transform: uppercase;
 }
 
+.button:hover {
+    background-color: rgb(190, 231, 194);
+}
+
 .buttonRandom {
     margin-left: 1rem;
+}
+
+.buttonRandom:hover {
+    background-color: rgb(190, 231, 194);
 }
