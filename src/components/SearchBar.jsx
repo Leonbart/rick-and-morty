@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './SearchBar.module.css';
+import Button from './Button';
 
 export default function SearchBar(props) {
 
@@ -19,14 +20,14 @@ export default function SearchBar(props) {
             // value={characterID}
             onChange={handleChange}
          />
-         <button
+         <Button
+            text='Add'
             onClick={() => props.onSearch(characterID)}
-            className={styles.button}
-         >Add</button>
-         <button
-            onClick={() => props.onSearch(Math.floor(Math.random()*826 + 1))}
-            className={`${styles.button} ${styles.buttonRandom}`}
-         >Add Random</button>
+         />
+         <Button
+            text='Add Random'
+            onClick={() => props.onSearch(Math.floor(Math.random() * 826 + 1))}
+         />
       </div>
    );
 }

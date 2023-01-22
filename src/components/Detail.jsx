@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import Button from './Button.jsx';
 import styles from './Detail.module.css';
 
 export default function Detail() {
@@ -34,14 +35,17 @@ export default function Detail() {
     return (
         <div className={styles.divDetail}>
             <div className={styles.divData}>
-                <p style={nameStyle}>{character.name}</p>   {/* LEO: inline style */}
+                <p style={nameStyle}>{character.name}</p>
                 <p className={styles.specs}>STATUS: {character.status}</p>
                 <p className={styles.specs}>SPECIES: {character.species}</p>
                 <p className={styles.specs}>GENDER: {character.gender}</p>
                 <p className={styles.specs}>ORIGIN: {character.origin?.name}</p>
                 <p className={styles.specs}>LOCATION: {character.location?.name}</p>
                 <div className={styles.divButtonBack}>
-                    <button className={styles.buttonBack} onClick={() => navigate(-1)}>GO BACK</button>
+                    <Button
+                        text='go back'
+                        onClick={() => navigate(-1)}
+                    />
                 </div>
             </div>
             <img src={character.image} className='Image' alt="character" />

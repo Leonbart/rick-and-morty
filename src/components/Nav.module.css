@@ -18,23 +18,6 @@
     width: auto;
 }
 
-.btnAbout {
-    color: rgb(51, 51, 51);
-    background-color: rgb(158, 214, 164);
-    border-radius: 0.3rem;
-    border-color: green;
-    border-width: 0rem;
-    height: 2rem;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-left: 2rem;
-}
-
-.btnAbout:hover {
-    background-color: rgb(190, 231, 194);
-}
-
 .divSearchBar {
     background-color: rgb(55, 149, 161);
 }
