@@ -1,0 +1,12 @@
+.divNav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: rgb(115, 171, 179)
+}
+
+.divSearchBar {
+    background-color: rgb(55, 149, 161);
+}
