@@ -39,7 +39,7 @@ export default function About() {
             <DivBtnHome>
                 <Button
                     text='HOME'
-                    onClick={() => navigate('/')}
+                    onClick={() => navigate('/home')}
                 />
             </DivBtnHome>
         </DivAbout>

@@ -5,11 +5,14 @@ import Nav from './components/Nav.jsx'
 import Detail from './components/Detail.jsx'
 import About from './components/About.jsx'
 import Error from './components/Error.jsx'
-import { Routes, Route } from 'react-router-dom';
+import Form from './components/Form'
+import { Routes, Route, useLocation } from 'react-router-dom'
 
 function App() {
 
 	const [characters, setCharacters] = useState([]);
+
+	let location = useLocation();
 
 	const onSearch = (characterID) => {
 		// Check if character is already in characters to avoid duplicates
@@ -34,14 +37,17 @@ function App() {
 
 	return (
 		<div className='App' style={{ padding: '25px' }}>
-			<Nav
-				onSearch={onSearch}
-			/>
+			{location.pathname === '/' ? null :
+				<Nav
+					onSearch={onSearch}
+				/>
+			}
 			<Routes>
-				<Route path='/' element={<Cards
+				<Route path='/' element={<Form />} />;
+				<Route path='/home' element={<Cards
 					characters={characters}
 					onClose={onClose}
-				/>}/>;
+				/>} />;
 				<Route path='/about' element={<About />} />;
 				<Route path='/detail/:detailId' element={<Detail />} />;
 				<Route path='*' element={<Error />} />;

@@ -15,7 +15,7 @@ export default function Error() {
             <div className={styles.divButtonHome}>
                 <Button
                     text='home'
-                    onClick={() => navigate('/')}
+                    onClick={() => navigate('/home')}
                 />
             </div>
         </div>
