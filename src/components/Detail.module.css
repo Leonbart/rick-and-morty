@@ -35,3 +35,11 @@
     align-items: center;
     padding-bottom: 1rem;
 }
+
+.dead {
+    color: rgba(212, 62, 62, 0.336);
+}
+
+.alive {
+    color: rgba(50, 104, 50, 0.801);
+}

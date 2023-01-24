@@ -36,7 +36,7 @@ export default function Detail() {
         <div className={styles.divDetail}>
             <div className={styles.divData}>
                 <p style={nameStyle}>{character.name}</p>
-                <p className={styles.specs}>STATUS: {character.status}</p>
+                <p className={`${styles.specs} ${character.status === 'Alive' ? styles.alive : null}`}>STATUS: {character.status}</p>
                 <p className={styles.specs}>SPECIES: {character.species}</p>
                 <p className={styles.specs}>GENDER: {character.gender}</p>
                 <p className={styles.specs}>ORIGIN: {character.origin?.name}</p>
