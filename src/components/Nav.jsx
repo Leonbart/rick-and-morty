@@ -8,12 +8,13 @@ export default function Nav(props) {
     return (
         <div className={styles.divNav}>
             <div className={styles.divLeft}>
-                <Link to='/'>
+                <Link to='/home'>
                     <img className={styles.image} src={logo} alt='Rick and Morty' />
                 </Link>
                 <Link to='/about'>
-                    <Button text='About' />
+                    <Button text='about' />
                 </Link>
+                <Button text='logout' onClick={props.logout} />
             </div>
             <div className={styles.divSearchBar}>
                 <SearchBar
