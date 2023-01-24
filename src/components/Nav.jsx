@@ -2,9 +2,12 @@ import SearchBar from './SearchBar.jsx';
 import Button from './Button';
 import styles from './Nav.module.css';
 import logo from '../assets/rick_and_morty_logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Nav(props) {
+
+    let location = useLocation();
+
     return (
         <div className={styles.divNav}>
             <div className={styles.divLeft}>
@@ -17,9 +20,11 @@ export default function Nav(props) {
                 <Button text='logout' onClick={props.logout} />
             </div>
             <div className={styles.divSearchBar}>
+                {location.pathname === '/home' ? 
                 <SearchBar
                     onSearch={props.onSearch}
-                />
+                /> : null
+                }
             </div>
         </div>
     );

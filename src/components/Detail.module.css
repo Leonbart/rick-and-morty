@@ -37,9 +37,11 @@
 }
 
 .dead {
-    color: rgba(212, 62, 62, 0.336);
+    color: rgba(189, 97, 97, 0.712);
+    font-weight: 500;
 }
 
 .alive {
-    color: rgba(50, 104, 50, 0.801);
+    color: rgba(76, 112, 76, 0.904);
+    font-weight: 500;
 }
