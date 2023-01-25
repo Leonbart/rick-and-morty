@@ -6,7 +6,7 @@ const DivAbout = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem;
+    margin: 1rem 0;
     padding: 0 1rem;
     background-color: rgb(115, 115, 115, 0.8);
     color: rgba(230, 230, 230, 1);

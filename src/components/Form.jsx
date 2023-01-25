@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from './Button.jsx';
-import logo from '../assets/rick_and_morty_logo.png';
 import styles from './Form.module.css';
 import validate from './validation';
 
@@ -34,11 +33,13 @@ export default function Form(props) {
 
     return (
         <div className={styles.divLoginForm}>
-            <img src={logo} className={styles.image} alt='logo' />
+            <div className={styles.divImgContainer}>
+                {/* <img src={logo} className={styles.image} alt='logo' /> */}
+            </div>
 
             <form>
 
-                <label htmlFor="user">Username:  </label>
+                <label htmlFor="user">Username: </label>
                 <input
                     id="user"
                     name="user"
@@ -50,7 +51,7 @@ export default function Form(props) {
                 />
                 <p className={styles.danger}>{errors.user}</p>
 
-                <label htmlFor="pass">Password:</label>
+                <label htmlFor="pass">Password: </label>
                 <input
                     id="pass"
                     name="pass"
