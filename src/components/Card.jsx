@@ -1,14 +1,31 @@
 import styles from './Card.module.css';
 import { Link } from 'react-router-dom';
+import { addFavorite, deleteFavorite } from '../redux/actions';
+import { useState } from 'react';
+import { connect } from 'react-redux';
 
-export default function Card(props) {
+export function Card(props) {
+
+   const [isFav, setIsFav] = useState(false);
+
+   const handleFavorite = (e) => {
+      // Switches the isFav state. If it's true makes it false (and deletes the character from favorites), and the other way around (adding the character to favorites)
+      if (isFav) {
+         props.deleteFavorite(props.id);
+      }
+      else {
+         setIsFav(true);
+         props.addFavorite(props);
+      }
+   };
+
 
    return (
       <div className={styles.divCard}>
 
          <div className={styles.divButton}>
             <button
-               className={styles.buttonCard}
+               className={styles.buttonCloseCard}
                onClick={() => { props.onClose(props.id) }}
             // onClick={props.onClose(props.id)}
             >
@@ -34,3 +51,19 @@ export default function Card(props) {
       </div>
    );
 }
+
+
+function mapDispatchToProps(dispatch) {
+   return {
+   addFavorite: function() {
+     dispatch(addFavorite());
+   },
+   deleteFavorite: function() {
+     dispatch(deleteFavorite())
+   },
+ }
+};
+
+
+
+export default connect(null, mapDispatchToProps) (Card);
