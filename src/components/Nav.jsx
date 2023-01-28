@@ -14,6 +14,12 @@ export default function Nav(props) {
                 <Link to='/home'>
                     <img className={styles.image} src={logo} alt='Rick and Morty' />
                 </Link>
+                <Link to='/home'>
+                    <Button text='home' />
+                </Link>
+                <Link to='/favorites'>
+                    <Button text='favorites' />
+                </Link>
                 <Link to='/about'>
                     <Button text='about' />
                 </Link>
