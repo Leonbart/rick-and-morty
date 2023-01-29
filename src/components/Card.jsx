@@ -57,14 +57,14 @@ export function Card(props) {
 
             {/* Close button */}
             {location.pathname !== '/favorites' ?
-            <button
-               className={styles.buttonCloseCard}
-               onClick={() => { props.onClose(props.id) }}
-            // onClick={props.onClose(props.id)}
-            >
-               X
-            </button>
-            : null
+               <button
+                  className={styles.buttonCloseCard}
+                  onClick={() => { props.onClose(props.id) }}
+               // onClick={props.onClose(props.id)}
+               >
+                  X
+               </button>
+               : null
             }
 
          </div>
