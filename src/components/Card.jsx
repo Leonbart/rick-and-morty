@@ -37,23 +37,26 @@ export function Card(props) {
          <div className={styles.divButton}>
 
             {/* Favorite button */}
-            {isFav ? (
-               <button
-                  className={styles.buttonFavorite}
-                  onClick={handleFavorite}>
-                  ❤️
-               </button>
-            )
-               : (
+            {location.pathname !== '/favorites' ?
+               isFav ? (
                   <button
                      className={styles.buttonFavorite}
                      onClick={handleFavorite}>
-                     🤍
+                     ❤️
                   </button>
                )
+                  : (
+                     <button
+                        className={styles.buttonFavorite}
+                        onClick={handleFavorite}>
+                        🤍
+                     </button>
+                  )
+               : null
             }
 
             {/* Close button */}
+            {location.pathname !== '/favorites' ?
             <button
                className={styles.buttonCloseCard}
                onClick={() => { props.onClose(props.id) }}
@@ -61,6 +64,9 @@ export function Card(props) {
             >
                X
             </button>
+            : null
+            }
+
          </div>
 
          <div className={styles.divImgContainer}>
