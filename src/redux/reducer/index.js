@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, DELETE_FAVORITE, FILTER } from "../actions/types.js";
+import { ADD_FAVORITE, DELETE_FAVORITE, ORDER, FILTER, RESET_FAV_FILTERS } from "../actions/types.js";
 
 const initialState = {
     myFavorites: [],    // Selected favorite characters
@@ -23,11 +23,24 @@ function rootReducer(state = initialState, { type, payload }) {
                 myFavorites: newFarorites,
                 allCharacters: newAllCharacters,
             }
+            case ORDER:
+                const ordered = [...state.allCharacters];
+                ordered.sort((a, b) => a.id - b.id);
+                if (payload !== 'ASC') ordered.reverse();
+                return {
+                    ...state,
+                    myFavorites: [...ordered],
+                }
             case FILTER:
-                const filteredByGender = state.allCharacters.filter(char => char.gender !== payload);
+                const filteredByGender = state.allCharacters.filter(char => char.gender === payload);
                 return {
                     ...state,
                     myFavorites: [...filteredByGender],
+                }
+            case RESET_FAV_FILTERS:
+                return {
+                    ...state,
+                    myFavorites: [...state.allCharacters],
                 }
         default:
             return state

@@ -1,4 +1,4 @@
-import { DELETE_FAVORITE, ADD_FAVORITE, FILTER, ORDER } from "./types";
+import { DELETE_FAVORITE, ADD_FAVORITE, FILTER, ORDER, RESET_FAV_FILTERS } from "./types";
 
 export function addFavorite(favChar) {
     return {
@@ -24,5 +24,11 @@ export function orderCards(order) { // order --> 'ASC' or 'DESC'
     return {
         type: ORDER,
         payload: order,
+    }
+}
+export function resetFavFilters() {
+    return {
+        type: RESET_FAV_FILTERS,
+        // payload: '',
     }
 }
