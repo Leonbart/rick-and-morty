@@ -24,7 +24,7 @@ function rootReducer(state = initialState, { type, payload }) {
                 allCharacters: newAllCharacters,
             }
             case ORDER:
-                const ordered = [...state.allCharacters];
+                const ordered = [...state.myFavorites];
                 ordered.sort((a, b) => a.id - b.id);
                 if (payload !== 'ASC') ordered.reverse();
                 return {

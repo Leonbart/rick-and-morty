@@ -24,15 +24,15 @@ export function Favorites(props) {
         <>
             <div className='divOrderFiltering'>
                 {/* <label htmlFor='order'>Choose Ordering (asc/desc):</label> */}
-                <select name='order' id="order" onChange={handleOrderChange}>
-                    <option value="" disabled selected>Select Order</option>
+                <select name='order' id="order" onChange={handleOrderChange} defaultValue="">
+                    <option value="" disabled>Select Order</option>
                     <option value='ASC'>Ascending</option>
                     <option value='DESC'>Descending</option>
                 </select>
 
                 {/* <label htmlFor='filter'>Choose Filtering</label> */}
-                <select name='filter' id='filter' onChange={handleFilterChange}>
-                    <option value="" disabled selected>Select Gender</option>
+                <select name='filter' id='filter' onChange={handleFilterChange} defaultValue="">
+                    <option value="" disabled>Select Gender</option>
                     <option value='Male'>Male</option>
                     <option value='Female'>Female</option>
                     <option value='Genderless'>Genderless</option>

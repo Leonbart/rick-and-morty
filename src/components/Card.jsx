@@ -79,11 +79,9 @@ export function Card(props) {
 
          {/* Specs */}
          <div className={styles.divSpecs}>
-            {/* {location.pathname !== '/favorites' ? ( */}
-            {console.log(props)}
+            {/* {console.log(props)} */}
             <span className={styles.specs}>{props.id}</span>
-            {/* )
-               : null} */}
+
             <span className={styles.specs}>{props.gender}</span>
             <span className={styles.specs}>{props.species}</span>
          </div>
