@@ -12,3 +12,29 @@
     box-shadow: 10px 10px 15px rgba(129, 129, 129, 0.5);
     border-radius: 0.5rem; */
 }
+
+.divOrderFiltering {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1%;
+    margin: 1rem 0;
+}
+
+.selectOrderFilter {
+    /* color: rgb(51, 51, 51); */
+    color: rgb(158, 214, 164);
+    /* background-color: rgb(158, 214, 164); */
+    background-color: rgb(2, 20, 4);
+    border-radius: 0.3rem;
+    border-color: rgb(82, 83, 82);
+    border-width: 0.1rem;
+    height: 1.5rem;
+    width: 10rem;
+    padding: 0 1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
