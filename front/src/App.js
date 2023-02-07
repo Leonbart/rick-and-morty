@@ -36,7 +36,8 @@ function App() {
 		if (characters.find(elem => elem.id === parseInt(characterID))) window.alert('Selected character is already shown')
 		else {
 			// If character is not in characters, fetch from API
-			fetch(`https://rickandmortyapi.com/api/character/${characterID}`)
+			// fetch(`https://rickandmortyapi.com/api/character/${characterID}`)
+			fetch(`http://localhost:3001/rickandmorty/character/${characterID}`)
 				.then((response) => response.json())
 				.then((data) => {
 					if (data.name) {

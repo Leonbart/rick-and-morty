@@ -4,6 +4,7 @@
   "description": "Rick&Morty Backend",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon ./src/routes/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Leonardo Alabart",
