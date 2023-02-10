@@ -1,23 +1,25 @@
 var http = require('http');
 var fs = require("fs");
-var characters = require('../utils/data.js')
+var characters = require('../utils/data.js');
+const getCharById = require('../controllers/getCharById.js');
+const getCharDetail = require('../controllers/getCharDetail.js');
 
 const PORT = 3001;
 
 const server = http.createServer((req, res) => {
     console.log(`Server raised in port ${PORT}`);
     res.setHeader('Access-Control-Allow-Origin', '*');
+    
+    let id = Number(req.url.split('/').at(-1));
 	
-    if (req.url.includes('rickandmorty/character')) {
-		// Get id from req.url (req.url will be sth like '/rickandmorty/character/1')
-		let id = Number(req.url.split('/').at(-1));
-
-        // Get character from data.js file with id
-        let character = characters.filter(char => (char.id === id));
-
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(character[0]));
+    if (req.url.includes('onsearch')) {
+        getCharById(res, id)
     }
+	
+    if (req.url.includes('detail')) {
+        getCharDetail(res, id)
+    }
+
 });
 
 server.listen(PORT, "localhost", () => {

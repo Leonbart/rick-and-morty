@@ -37,7 +37,7 @@ function App() {
 		else {
 			// If character is not in characters, fetch from API
 			// fetch(`https://rickandmortyapi.com/api/character/${characterID}`)
-			fetch(`http://localhost:3001/rickandmorty/character/${characterID}`)
+			fetch(`http://localhost:3001/rickandmorty/onsearch/${characterID}`)
 				.then((response) => response.json())
 				.then((data) => {
 					if (data.name) {
