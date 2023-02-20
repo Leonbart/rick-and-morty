@@ -59,7 +59,7 @@ export function Favorites(props) {
 
             {/* Favorite Cards */}
             <div className='divFavCards'>
-                {props.myFavorites.map((elem, index) =>
+                {props.selectedFavorites.map((elem, index) =>
                     <Card
                         key={index}
                         id={elem.id}
@@ -75,7 +75,7 @@ export function Favorites(props) {
 
 export function mapStateToProps(state) {
     return {
-        myFavorites: state.myFavorites,
+        selectedFavorites: state.selectedFavorites,
     };
 };
 

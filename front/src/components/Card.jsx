@@ -23,12 +23,12 @@ export function Card(props) {
    };
 
    useEffect(() => {
-      props.myFavorites?.forEach((fav) => {
+      props.allFavorites?.forEach((fav) => {
          if (fav.id === props.id) {
             setIsFav(true);
          }
       });
-   }, [props.myFavorites]);
+   }, [props.allFavorites]);
 
 
    return (
@@ -92,7 +92,7 @@ export function Card(props) {
 
 export function mapStateToProps(state) {
    return {
-      myFavorites: state.myFavorites,
+      allFavorites: state.allFavorites,
    };
 };
 
