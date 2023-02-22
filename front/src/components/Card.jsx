@@ -5,10 +5,17 @@ import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 export function Card(props) {
-
    const [isFav, setIsFav] = useState(false);
 
    let location = useLocation();
+
+   const character = {
+      name: props.name,
+      id: props.id,
+      image: props.image,
+      gender: props.gender,
+      species: props.species,
+   };
 
    const handleFavorite = (e) => {
       // Switches the isFav state. If it's true makes it false (and deletes the character from favorites), and the other way around (adding the character to favorites)
@@ -18,7 +25,8 @@ export function Card(props) {
       }
       else {
          setIsFav(true);
-         props.addFavorite(props);
+         props.addFavorite(character);
+         // props.addFavorite(props);
       }
    };
 

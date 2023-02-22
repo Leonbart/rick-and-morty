@@ -4,7 +4,7 @@ const postFavorite = (req, res) => {
     const char = req.body;
     favs.push(char);
 
-    res.json('Character added to favs.');
+    res.status(200).json(char);
 };
 
 module.exports = postFavorite;
