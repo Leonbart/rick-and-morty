@@ -23,8 +23,10 @@ export function Favorites(props) {
     };
 
     useEffect(() => {
-        dispatch(actions.resetFavFilters());
+        // dispatch(actions.resetFavFilters());
+        dispatch(actions.getFavorites());
     }, []);
+
 
     return (
         <>
@@ -59,7 +61,7 @@ export function Favorites(props) {
 
             {/* Favorite Cards */}
             <div className='divFavCards'>
-                {props.selectedFavorites.map((elem, index) =>
+                {props.selectedFavorites?.map((elem, index) =>
                     <Card
                         key={index}
                         id={elem.id}

@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, DELETE_FAVORITE, ORDER, FILTER, RESET_FAV_FILTERS } from "../actions/types.js";
+import { ADD_FAVORITE, DELETE_FAVORITE, ORDER, FILTER, RESET_FAV_FILTERS, GET_FAVORITES } from "../actions/types.js";
 
 const initialState = {
     selectedFavorites: [],    // Selected favorite characters
@@ -41,6 +41,12 @@ function rootReducer(state = initialState, { type, payload }) {
             return {
                 ...state,
                 selectedFavorites: [...state.allFavorites],
+            }
+        case GET_FAVORITES:  // selectedFavorites <--- allFavorites <--- BACK-END
+            return {
+                ...state,
+                selectedFavorites: payload,
+                allFavorites: payload,
             }
         default:
             return state

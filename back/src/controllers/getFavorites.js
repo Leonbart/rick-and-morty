@@ -1,7 +1,7 @@
 const favs = require('../utils/favs.js');
 
 const getFavorites = (req, res) => {
-    res.status(200).json(favs);
+    return res.status(200).send(favs);
 };
 
 module.exports = getFavorites;

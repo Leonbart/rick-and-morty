@@ -1,4 +1,4 @@
-import { DELETE_FAVORITE, ADD_FAVORITE, FILTER, ORDER, RESET_FAV_FILTERS } from "./types";
+import { DELETE_FAVORITE, ADD_FAVORITE, FILTER, ORDER, RESET_FAV_FILTERS, GET_FAVORITES } from "./types";
 import axios from 'axios';
 
 export function addFavorite(favChar) {
@@ -59,4 +59,19 @@ export function resetFavFilters() {
         type: RESET_FAV_FILTERS,
         // payload: '',
     }
+}
+
+export function getFavorites() {
+    return async function (dispatch) {
+        try {
+            let favsFromBackEnd = await (await axios.get(`http://localhost:3001/rickandmorty/fav`)).data;
+
+            dispatch({
+                type: GET_FAVORITES,
+                payload: favsFromBackEnd,
+            });
+        } catch (error) {
+            throw new Error(error);
+        }
+    };
 }
