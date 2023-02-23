@@ -8,6 +8,8 @@ import Error from './components/Error.jsx'
 import Form from './components/Form'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import Favorites from './components/Favorites'
+import { useDispatch } from 'react-redux'
+import * as actions from './redux/actions/index.js';
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
 
 	let location = useLocation();
 	let navigate = useNavigate();
+
+	const dispatch = useDispatch();
 
 	const login = (userData) => {
 		if (userData.user === username && userData.pass === password) {
@@ -51,6 +55,7 @@ function App() {
 
 	const onClose = (characterID) => {
 		setCharacters((oldChars) => oldChars.filter(c => c.id !== characterID));
+		dispatch(actions.deleteFavorite(characterID));
 	};
 
 	useEffect(() => {

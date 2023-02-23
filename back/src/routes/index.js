@@ -4,7 +4,8 @@ const characterRouter = express.Router()
 // Controllers
 const getCharById = require('../controllers/getCharById.js');
 const getCharDetail = require('../controllers/getCharDetail.js');
-const deleteFavorites = require('../controllers/deleteFavorite.js');
+const deleteFavorite = require('../controllers/deleteFavorite.js');
+const deleteFavorites = require('../controllers/deleteFavorites.js');
 const getFavorites = require('../controllers/getFavorites.js');
 const postFavorite = require('../controllers/postFavorite.js');
 
@@ -13,7 +14,8 @@ characterRouter.get('/detail/:id', getCharDetail);
 
 characterRouter.post('/fav', postFavorite);
 characterRouter.get('/fav', getFavorites);
-characterRouter.delete('/fav/:id', deleteFavorites);
+characterRouter.delete('/fav/:id', deleteFavorite);
+characterRouter.delete('/fav', deleteFavorites);
 
 
 module.exports = characterRouter;

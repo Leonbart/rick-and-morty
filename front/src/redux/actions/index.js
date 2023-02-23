@@ -1,4 +1,4 @@
-import { DELETE_FAVORITE, ADD_FAVORITE, FILTER, ORDER, RESET_FAV_FILTERS, GET_FAVORITES } from "./types";
+import { DELETE_FAVORITE, ADD_FAVORITE, FILTER, ORDER, RESET_FAV_FILTERS, GET_FAVORITES, DELETE_FAVORITES } from "./types";
 import axios from 'axios';
 
 export function addFavorite(favChar) {
@@ -31,7 +31,9 @@ export function deleteFavorite(id) {
                 payload: id,
             });
         } catch (error) {
-            throw new Error(error);
+            // By design when a card is closed, it is removed from favorites without checking if it was a favorite. So console.log but don't throw an error.
+            console.log(error);
+            // throw new Error(error);
         }
     };
 }
@@ -41,6 +43,21 @@ export function deleteFavorite(id) {
 //         payload: id
 //     }
 // }
+
+export function deleteFavorites() {
+    return async function (dispatch) {
+        try {
+            await axios.delete(`http://localhost:3001/rickandmorty/fav/`);
+            dispatch({
+                type: DELETE_FAVORITES,
+                // payload: id,
+            });
+        } catch (error) {
+            throw new Error(error);
+        }
+    };
+}
+
 
 export function filterCards(gender) {
     return {

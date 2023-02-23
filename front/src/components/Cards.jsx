@@ -1,8 +1,17 @@
 import styles from './Cards.module.css';
 import Card from './Card';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import * as actions from '../redux/actions/index.js';
 
 export default function Cards(props) {
    const { characters } = props;
+   const dispatch = useDispatch();
+
+   useEffect(() => {
+      if (characters.length < 1) dispatch(actions.deleteFavorites());
+   }, []);
+
    return (
       <div className={styles.divCards}>
          {characters.map((elem, index) =>
