@@ -4,7 +4,7 @@
   "description": "Rick&Morty Backend",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon ./src/routes/server.js",
+    "start": "nodemon ./src/app.js",
     "test": "jest --detectOpenHandles"
   },
   "author": "Leonardo Alabart",
