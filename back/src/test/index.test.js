@@ -52,15 +52,19 @@ describe("Test de RUTAS", () => {
         // characterRouter.delete('/fav/:id', deleteFavorite);
         // characterRouter.delete('/fav', deleteFavorites);
 
-        it('Postea un favorito retornando status 200 y el character posteado', () => {
-            let chartoPost = {
+        // Using async/await
+        it('Postea un favorito retornando status 200 y el character posteado', async () => {
+            let charToPost = {
                 name: "Rick Sanchez",
                 gender: "Male",
                 status: "Alive",
                 species: "Human",
             }
-            return agent.post('/rickandmorty/fav')
-            .expect(200);
+            const res = await agent.post('/rickandmorty/fav')
+                .send(charToPost);
+            expect(res.statusCode).toBe(200);
+            expect(res.body).toEqual(charToPost);
+
         })
 
     })
