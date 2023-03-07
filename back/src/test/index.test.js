@@ -24,7 +24,9 @@ describe("Test de RUTAS", () => {
         it('Si hay un error responde con status: 500', () => {
             return agent.get('/rickandmorty/onsearch/1500').expect(500);
         })
+    })
 
+    describe('GET rickandmorty/detail/{id}', () => {
         it('Responde un objeto con las propiedades: "id", "name", "species", "gender", "status", "origin" e "image"', () => {
             return agent.get('/rickandmorty/detail/1').then((response) => {
                 expect(response.body).toEqual({
@@ -44,15 +46,16 @@ describe("Test de RUTAS", () => {
                 })
             });
         });
+    })
 
+    // routes to test:
+    // characterRouter.post('/fav', postFavorite); RETURNS STATUS 200 AND THE CHARACTER POSTED IN JSON FORMAT
+    // characterRouter.get('/fav', getFavorites);
+    // characterRouter.delete('/fav/:id', deleteFavorite);
+    // characterRouter.delete('/fav', deleteFavorites);
 
-        // routes to test:
-        // characterRouter.post('/fav', postFavorite); RETURNS STATUS 200 AND THE CHARACTER POSTED IN JSON FORMAT
-        // characterRouter.get('/fav', getFavorites);
-        // characterRouter.delete('/fav/:id', deleteFavorite);
-        // characterRouter.delete('/fav', deleteFavorites);
-
-        // Using async/await
+    // --- Using async/await ------------------------------------------------------------------
+    describe('POST /fav', () => {
         it('Postea un favorito retornando status 200 y el character posteado', async () => {
             let charToPost = {
                 name: "Rick Sanchez",
