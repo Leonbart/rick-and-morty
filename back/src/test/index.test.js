@@ -49,8 +49,7 @@ describe("Test de RUTAS", () => {
     })
 
     // routes to test:
-    // characterRouter.post('/fav', postFavorite); RETURNS STATUS 200 AND THE CHARACTER POSTED IN JSON FORMAT
-    // characterRouter.get('/fav', getFavorites);
+
     // characterRouter.delete('/fav/:id', deleteFavorite);
     // characterRouter.delete('/fav', deleteFavorites);
 
@@ -70,5 +69,13 @@ describe("Test de RUTAS", () => {
 
         })
 
+    })
+
+    describe('GET /fav', () => {
+        it('Devuelve status 200 y un array', async () => {
+            const res = await agent.get('/rickandmorty/fav');
+            expect(res.statusCode).toBe(200);
+            expect(Array.isArray(res.body)).toBe(true);
+        })
     })
 });
