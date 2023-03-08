@@ -14,8 +14,8 @@ characterRouter.get('/detail/:id', getCharDetail);
 
 characterRouter.post('/fav', postFavorite);
 characterRouter.get('/fav', getFavorites);
-characterRouter.delete('/fav/:id', deleteFavorite);
 characterRouter.delete('/fav', deleteFavorites);
+characterRouter.delete('/fav/:id', deleteFavorite);
 
 
 module.exports = characterRouter;

@@ -50,7 +50,6 @@ describe("Test de RUTAS", () => {
 
     // routes to test:
 
-    // characterRouter.delete('/fav/:id', deleteFavorite);
     // characterRouter.delete('/fav', deleteFavorites);
 
     // --- Using async/await ------------------------------------------------------------------
@@ -77,5 +76,68 @@ describe("Test de RUTAS", () => {
             expect(res.statusCode).toBe(200);
             expect(Array.isArray(res.body)).toBe(true);
         })
+    })
+
+    // --- Using async/await and resolve
+
+    describe('DELETE /fav/:id', () => {
+        const id_to_fail = 10000; // id del favorite a borrar (fail)
+        const id_to_succeed = 1; // id del favorite a borrar (success)
+
+        it(`Si el id ${id_to_fail} no está en favoritos, devuelve status 400.`, async () => {
+            expect.assertions(1);
+            await expect(agent.delete(`/rickandmorty/fav/${id_to_fail}`))
+                .resolves.toHaveProperty('status', 400);
+        });
+
+        it(`Si el id ${id_to_fail} no está en favoritos, devuelve el warning: The character with id ${id_to_fail} is not in favorites.`, async () => {
+            expect.assertions(1);
+            await expect(agent.delete(`/rickandmorty/fav/${id_to_fail}`))
+                .resolves.toHaveProperty('text', `{"warning":"The character with id ${id_to_fail} is not in favorites."}`);
+        })
+
+        // Add a character to favs array and check successful delete
+        const favs = require('../utils/favs.js');
+        favs.push({
+            id: 1,
+            name: "Rick Sanchez",
+            gender: "Male",
+            status: "Alive",
+            species: "Human",
+        });
+
+        it(`Si el id ${id_to_succeed} está en favoritos, devuelve success: true.`, async () => {
+            expect.assertions(1);
+            await expect(agent.delete(`/rickandmorty/fav/${id_to_succeed}`))
+                .resolves.toHaveProperty('text', `{"success":true}`);
+        })
+    })
+
+    describe('DELETE /fav', () => {
+        // Add 2 characters to favs array and check successful delete
+        const favs = require('../utils/favs.js');
+        favs.push({
+            id: 1,
+            name: "Rick Sanchez",
+            gender: "Male",
+            status: "Alive",
+            species: "Human",
+        },
+            {
+                id: 2,
+                name: "John Doe",
+                gender: "Male",
+                status: "Alive",
+                species: "Human",
+            });
+
+        // not using resolve (to check status code)
+        it('Borra todos los favoritos del array favs, devuelve status 200.', async () => {
+            expect.assertions(2);
+            const res = await agent.delete('/rickandmorty/fav');
+            expect(favs).toEqual([]);
+            expect(res.statusCode).toBe(200);
+        })
+
     })
 });
